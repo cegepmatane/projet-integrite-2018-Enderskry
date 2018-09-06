@@ -5,9 +5,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
-public class VueAjouterJoueur extends Application {
+public class VueAjouterJoueur extends Scene {
 
 
 	protected TextField valeurNom;
@@ -15,10 +14,10 @@ public class VueAjouterJoueur extends Application {
 	protected TextField valeurPoids;
 	protected TextField valeurNaissance;
 	
-	@Override
-	public void start(Stage stade) throws Exception {
-
-		VBox panneau = new VBox();	
+	public VueAjouterJoueur() 
+	{
+		super(new VBox(), 400, 400);
+		VBox panneau = (VBox) this.getRoot();	
 		GridPane grilleJoueur = new GridPane();
 		
 		valeurNom = new TextField();
@@ -40,12 +39,11 @@ public class VueAjouterJoueur extends Application {
 		panneau.getChildren().add(new Label("Ajouter un joueur"));
 		panneau.getChildren().add(grilleJoueur);
 		panneau.getChildren().add(new Button("Enregistrer"));
-		stade.setScene(new Scene(panneau, 400, 400));
-		stade.show();		
+				
 	
 	}
 	
-	public Joueur demanderJoueur()
+	public Joueur demanderJoueur() //Recupere les valeurs données par l'utilisateur
 	{
 		
 		Joueur joueur = new Joueur(this.valeurNom.getText(),

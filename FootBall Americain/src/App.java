@@ -4,7 +4,8 @@ public class App {
 
 		//VueJoueur.launch(VueJoueur.class, parametres);
 		//VueListeJoueur.launch(VueListeJoueur.class, parametres);
-		VueAjouterJoueur.launch(VueAjouterJoueur.class, parametres);
+		//VueAjouterJoueur.launch(VueAjouterJoueur.class, parametres);
+		NavigateurDesVues.launch(NavigateurDesVues.class, parametres);
 	}
 
 }
