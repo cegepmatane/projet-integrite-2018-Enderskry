@@ -47,7 +47,14 @@ public class VueAjouterJoueur extends Application {
 	
 	public Joueur demanderJoueur()
 	{
-		return null;
+		
+		Joueur joueur = new Joueur(this.valeurNom.getText(),
+									this.valeurNumero.getText(),
+									this.valeurPoids.getText(),
+									this.valeurNaissance.getText());
+		
+		return joueur;
+		
 	}
 
 }
