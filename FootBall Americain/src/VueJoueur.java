@@ -1,21 +1,20 @@
-import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
+import javafx.scene.layout.VBox;
 
-public class VueJoueur extends Application {
+public class VueJoueur extends Scene {
 	
-	Label valeurNom;
-	Label valeurNumero;
-	Label valeurNaissance;
-	Label valeurPoids;
+	protected Label valeurNom;
+	protected Label valeurNumero;
+	protected Label valeurNaissance;
+	protected Label valeurPoids;
 
-	@Override
-	public void start(Stage stade) throws Exception {
-		
-		Pane panneau = new Pane();	
+	public VueJoueur()
+	{
+		super(new VBox(), 400, 400);
+		Pane panneau = (Pane) this.getRoot();	
  		GridPane grilleJoueur = new GridPane();
  
  		
@@ -36,19 +35,14 @@ public class VueJoueur extends Application {
  		grilleJoueur.add(valeurPoids, 1, 3);		
  	
 		panneau.getChildren().add(grilleJoueur);
-		stade.setScene(new Scene(panneau, 400, 400));
-		stade.show();
-		
-
 	}
 	
-	/*public void afficherMouton(Joueur joueur)
+	public void afficherMouton(Joueur joueur)
 	{
+		this.valeurNom.setText(joueur.getNom());
+		this.valeurNumero.setText(joueur.getNumero());
+		this.valeurPoids.setText(joueur.getPoids());
+		this.valeurNaissance.setText(joueur.getNaissance());
 		
-		
-	
- 
-		
-	}*/
-
+	}
 }
