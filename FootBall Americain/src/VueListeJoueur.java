@@ -6,20 +6,21 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class VueListeJoueur extends Application{
+public class VueListeJoueur extends Scene{
 		
 	private GridPane grilleJoueur = null;
 
-	@Override
-	public void start(Stage stade) throws Exception {
 
-		Pane panneau = new Pane();	
+	public VueListeJoueur() {
+		super(new VBox(), 400, 400);
+		Pane panneau =  (Pane) this.getRoot();	
 		grilleJoueur = new GridPane();
 		
 		panneau.getChildren().add(grilleJoueur);
-		stade.setScene(new Scene(panneau, 400, 400));
+		
 		
 		List<Joueur> listeJoueurTest = new ArrayList<Joueur>();
 		
@@ -29,7 +30,7 @@ public class VueListeJoueur extends Application{
 		listeJoueurTest.add(new Joueur("Romain", "	77", "	80 kg", "	5 septembre 1997"));
  		this.afficherListeJoueur(listeJoueurTest); 
  		
- 		stade.show();
+ 		
 		
 	}
 	
