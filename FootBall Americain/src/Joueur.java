@@ -5,6 +5,7 @@ public class Joueur {
 	protected String naissance;
 	protected String poids;
 	
+	
 	public Joueur(String nom) {
 		super();
 		this.nom = nom;
