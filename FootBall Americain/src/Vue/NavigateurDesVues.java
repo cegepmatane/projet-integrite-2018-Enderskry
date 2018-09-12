@@ -30,7 +30,7 @@ public class NavigateurDesVues extends Application {
 	
 	
 		this.stade = stade;
-		this.stade.setScene(this.vueListeJoueur);
+		this.stade.setScene(null);
 		this.stade.show();
 		
 		

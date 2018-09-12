@@ -38,8 +38,9 @@ public class ControleurJoueur {
 		
 		this.navigateur.naviguerVerVueJoueur();
 		this.navigateur.naviguerVersVueListeJoueur();
-		//this.navigateur.naviguerVersVueAjouterJoueur();
+		this.navigateur.naviguerVersVueAjouterJoueur();
 	
+		/*Test*/
 List<Joueur> listeJoueurTest = new ArrayList<Joueur>();
 		
 		listeJoueurTest.add(new Joueur("Alec", "	22", "	59 kg", "	4 Mai 1998"));
