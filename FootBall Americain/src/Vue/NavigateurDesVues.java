@@ -5,6 +5,7 @@ import java.util.List;
 import Modele.Joueur;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import Controleur.ControleurJoueur;
 
 public class NavigateurDesVues extends Application {
 
@@ -12,9 +13,11 @@ public class NavigateurDesVues extends Application {
 	private VueListeJoueur vueListeJoueur;
 	private VueJoueur vueJoueur;
 	private Stage stade;
+	private ControleurJoueur controleur;
 	
 	public NavigateurDesVues()
 	{
+		this.controleur = new ControleurJoueur(this);
 		this.vueAjouterJoueur = new VueAjouterJoueur();
 		this.vueListeJoueur = new VueListeJoueur();
 		this.vueJoueur = new VueJoueur();
