@@ -1,3 +1,5 @@
+import Vue.NavigateurDesVues;
+
 public class App {
 
 	public static void main(String[] parametres) {
