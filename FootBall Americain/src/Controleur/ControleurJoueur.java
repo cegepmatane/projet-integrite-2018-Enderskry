@@ -17,14 +17,19 @@ public class ControleurJoueur {
 	private VueListeJoueur vueListeJoueur;
 	private VueAjouterJoueur vueAjouterJoueur;
 	
-	public ControleurJoueur(NavigateurDesVues navigateur)
+	private ControleurJoueur()
+	{
+		System.out.println("Lancement du controleur");
+	}
+	
+	public void activerVues(NavigateurDesVues navigateur)
 	{
 		this.navigateur = navigateur;
 		this.vueJoueur = navigateur.getVueJoueur();
 		this.vueListeJoueur = navigateur.getVueListeJoueur();
 		this.vueAjouterJoueur = navigateur.getVueAjouterJoueur();
 		
-		System.out.println("Lancement du controleur");
+		
 		
 				/*Test*/
  		Joueur joueur = new Joueur("	Alec", "	22", "	59 kg", "	4 Mai 1998");
@@ -45,5 +50,13 @@ List<Joueur> listeJoueurTest = new ArrayList<Joueur>();
 	
  		
 	}
+	
+	private static ControleurJoueur instance = null;
+	public static ControleurJoueur getInstance()
+	{
+		if(null == instance) instance = new ControleurJoueur();
+		return instance;
+	}
+	
 
 }

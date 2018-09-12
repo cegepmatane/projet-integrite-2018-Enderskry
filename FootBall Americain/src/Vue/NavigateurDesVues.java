@@ -13,7 +13,7 @@ public class NavigateurDesVues extends Application {
 	private VueListeJoueur vueListeJoueur = null;
 	private VueJoueur vueJoueur = null;
 	private Stage stade;
-	private ControleurJoueur controleur;
+	private ControleurJoueur controleur = null;
 	
 	public NavigateurDesVues()
 	{
@@ -38,7 +38,8 @@ public class NavigateurDesVues extends Application {
 		this.naviguerVersVueListeJoueur();
 		this.naviguerVerVueJoueur();
 		this.naviguerVersVueAjouterJoueur();
-		this.controleur = new ControleurJoueur(this);
+		this.controleur = ControleurJoueur.getInstance();
+		this.controleur.activerVues(this);
 
 		
 	}
