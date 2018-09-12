@@ -9,9 +9,9 @@ import Controleur.ControleurJoueur;
 
 public class NavigateurDesVues extends Application {
 
-	private VueAjouterJoueur vueAjouterJoueur;
-	private VueListeJoueur vueListeJoueur;
-	private VueJoueur vueJoueur;
+	private VueAjouterJoueur vueAjouterJoueur = null;
+	private VueListeJoueur vueListeJoueur = null;
+	private VueJoueur vueJoueur = null;
 	private Stage stade;
 	private ControleurJoueur controleur;
 	
@@ -22,16 +22,8 @@ public class NavigateurDesVues extends Application {
 		this.vueJoueur = new VueJoueur();
 		
 
-		List<Joueur> listeJoueurTest = new ArrayList<Joueur>();
 		
-		listeJoueurTest.add(new Joueur("Alec", "	22", "	59 kg", "	4 Mai 1998"));
-		listeJoueurTest.add(new Joueur("Lucas", "	12", "	76 kg", "	10 Juillet 1997"));
-		listeJoueurTest.add(new Joueur("Antoine", "	2", "	59 kg", "	20 Octobre 1998"));
-		listeJoueurTest.add(new Joueur("Romain", "	77", "	80 kg", "	5 septembre 1997"));
- 		this.vueListeJoueur.afficherListeJoueur(listeJoueurTest);
  		
- 		Joueur joueur = new Joueur("	Alec", "	22", "	59 kg", "	4 Mai 1998");
- 		this.vueJoueur.afficherMouton(joueur);
 	}
 	@Override
 	public void start(Stage stade) throws Exception {
