@@ -10,6 +10,10 @@ public class ControleurJoueur {
 	{
 		this.navigateur = navigateur;
 		System.out.println("Lancement du controleur");
+		
+		this.navigateur.naviguerVerVueJoueur();
+		this.navigateur.naviguerVersVueListeJoueur();
+		this.navigateur.naviguerVersVueAjouterJoueur();
 	}
 
 }

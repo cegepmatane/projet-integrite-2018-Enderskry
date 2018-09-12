@@ -17,7 +17,6 @@ public class NavigateurDesVues extends Application {
 	
 	public NavigateurDesVues()
 	{
-		this.controleur = new ControleurJoueur(this);
 		this.vueAjouterJoueur = new VueAjouterJoueur();
 		this.vueListeJoueur = new VueListeJoueur();
 		this.vueJoueur = new VueJoueur();
@@ -47,6 +46,8 @@ public class NavigateurDesVues extends Application {
 		this.naviguerVersVueListeJoueur();
 		this.naviguerVerVueJoueur();
 		this.naviguerVersVueAjouterJoueur();
+		this.controleur = new ControleurJoueur(this);
+
 		
 	}
 	
