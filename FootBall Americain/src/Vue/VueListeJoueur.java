@@ -11,27 +11,20 @@ import javafx.scene.layout.VBox;
 
 public class VueListeJoueur extends Scene{
 		
-	private GridPane grilleJoueur = null;
+	protected GridPane grilleJoueur;
 
 
 	public VueListeJoueur() {
-		super(new VBox(), 400, 400);
-		Pane panneau =  (Pane) this.getRoot();	
-		grilleJoueur = new GridPane();
-		
-		panneau.getChildren().add(grilleJoueur);
-		
-		 
- 		
- 		
-		
+		super(new GridPane(), 400, 400);
+		grilleJoueur =  (GridPane) this.getRoot();	
+	
 	}
 	
 	public void afficherListeJoueur(List<Joueur> listeJoueur)
 	{
 		
+		this.grilleJoueur.getChildren().clear();	//Vider la liste d'affichage avant de reafficher
 		
-		this.grilleJoueur.getChildren().clear();
 		int numero = 0;
 		this.grilleJoueur.add(new Label("Nom"), 0 , numero);
 		this.grilleJoueur.add(new Label("	Naissance"), 1, numero);

@@ -15,9 +15,8 @@ public class VueJoueur extends Scene {
 
 	public VueJoueur()
 	{
-		super(new VBox(), 400, 400);
-		Pane panneau = (Pane) this.getRoot();	
- 		GridPane grilleJoueur = new GridPane();
+		super(new GridPane(), 400, 400);
+		GridPane grilleJoueur =  (GridPane) this.getRoot();
  
  		
  		valeurNom = new Label("Alec");
@@ -36,7 +35,7 @@ public class VueJoueur extends Scene {
  		grilleJoueur.add(new Label("Poids : "), 0, 3);
  		grilleJoueur.add(valeurPoids, 1, 3);		
  	
-		panneau.getChildren().add(grilleJoueur);
+
 	}
 	
 	public void afficherMouton(Joueur joueur)
