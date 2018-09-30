@@ -74,4 +74,11 @@ public class ControleurJoueur {
 		this.navigateur.naviguerVersVueAjouterJoueur();
 	}
 
+	public void notifierNettoyerListeJoueur() {
+		System.out.println("Nettoyage");
+		this.joueurDAO.nettoyerListeJoueur();
+		this.vueListeJoueur.afficherListeJoueur(this.joueurDAO.listerJoueur());
+
+	}
+
 }

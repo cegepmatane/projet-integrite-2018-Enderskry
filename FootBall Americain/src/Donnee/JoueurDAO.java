@@ -82,10 +82,23 @@ public class JoueurDAO {
 		try {
 			Statement requeteAjouterJoueur = connection.createStatement();
 			
-			String sqlAjouterJoueur = "INSERT into joueur(nom, poids, numero, naissance) VALUES('"+joueur.getNom() +"','"+joueur.getPoids() +"','"+joueur.getNumero()+"','" +joueur.getNaissance()+"')";
+			String sqlAjouterJoueur = "INSERT into joueur(nom, naissance, numero, poids) VALUES('"+joueur.getNom() +"','"+joueur.getPoids() +"','"+joueur.getNumero()+"','" +joueur.getNaissance()+"')";
 			System.out.println("SQL : " + sqlAjouterJoueur);
 			requeteAjouterJoueur.execute(sqlAjouterJoueur);
 
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void nettoyerListeJoueur() 
+	{
+		try {
+			Statement requeteNettoyerListeJoueur = connection.createStatement();
+			
+			String sqlNettoyerListeJoueur = "DELETE FROM joueur";
+			requeteNettoyerListeJoueur.execute(sqlNettoyerListeJoueur);
+	
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}

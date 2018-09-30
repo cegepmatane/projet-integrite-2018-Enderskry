@@ -17,13 +17,13 @@ public class VueListeJoueur extends Scene{
 	private ControleurJoueur controleur = null;
 	
 	private Button actionNaviguerAjouterJoueur;
-
+	private Button actionNettoyerListeJoueur;
 
 	public VueListeJoueur() {
 		super(new GridPane(), 400, 400);
 		grilleJoueur =  (GridPane) this.getRoot();	
 		this.actionNaviguerAjouterJoueur = new Button("Ajouter un joueur");
-	
+		this.actionNettoyerListeJoueur = new Button("Nettoyer Liste");
 	}
 	
 	public void afficherListeJoueur(List<Joueur> listeJoueur)
@@ -54,7 +54,19 @@ public class VueListeJoueur extends Scene{
 	});
 	
 		this.grilleJoueur.add(this.actionNaviguerAjouterJoueur, 1, ++numero);
+		
+		this.actionNettoyerListeJoueur.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				controleur.notifierNettoyerListeJoueur();
+			}
+			
+		});
+		this.grilleJoueur.add(this.actionNettoyerListeJoueur, 1, ++numero);
 	}
+	
+
 	
 	
 	public void setControleur(ControleurJoueur controleur) {

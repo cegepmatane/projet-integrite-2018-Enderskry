@@ -72,5 +72,7 @@ public class NavigateurDesVues extends Application {
 		stade.show();
 	}
 	
+
+	
 	
 }
