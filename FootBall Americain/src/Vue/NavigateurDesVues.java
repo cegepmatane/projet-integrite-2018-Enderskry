@@ -1,8 +1,4 @@
 package Vue;
-import java.util.ArrayList;
-import java.util.List;
-
-import Modele.Joueur;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import Controleur.ControleurJoueur;
@@ -20,11 +16,8 @@ public class NavigateurDesVues extends Application {
 		this.vueAjouterJoueur = new VueAjouterJoueur();
 		this.vueListeJoueur = new VueListeJoueur();
 		this.vueJoueur = new VueJoueur();
-		
-
-		
- 		
 	}
+	
 	@Override
 	public void start(Stage stade) throws Exception {
 	
@@ -34,14 +27,14 @@ public class NavigateurDesVues extends Application {
 		this.stade.show();
 		
 		
-		/*Test*/
-		this.naviguerVersVueListeJoueur();
-		this.naviguerVerVueJoueur();
-		this.naviguerVersVueAjouterJoueur();
+		
+		
 		this.controleur = ControleurJoueur.getInstance();
 		this.controleur.activerVues(this);
-
-		
+		this.vueAjouterJoueur.setControleur(controleur);
+		this.vueListeJoueur.setControleur(controleur);
+		this.vueJoueur.setControleur(controleur);
+	
 	}
 	
 				/*Get*/

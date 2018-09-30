@@ -1,6 +1,5 @@
 package Controleur;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import Donnee.JoueurDAO;
@@ -14,13 +13,17 @@ public class ControleurJoueur {
 	
 	private NavigateurDesVues navigateur;
 	
-	private VueJoueur vueJoueur;
-	private VueListeJoueur vueListeJoueur;
-	private VueAjouterJoueur vueAjouterJoueur;
+	private VueJoueur vueJoueur = null;
+	private VueListeJoueur vueListeJoueur = null;
+	private VueAjouterJoueur vueAjouterJoueur = null;
+	
+	private JoueurDAO joueurDAO = null;
+
 	
 	private ControleurJoueur()
 	{
 		System.out.println("Lancement du controleur");
+		this.joueurDAO = new JoueurDAO();
 	}
 	
 	public void activerVues(NavigateurDesVues navigateur)
@@ -39,7 +42,7 @@ public class ControleurJoueur {
 		
 		this.navigateur.naviguerVerVueJoueur();
 		this.navigateur.naviguerVersVueListeJoueur();
-		//this.navigateur.naviguerVersVueAjouterJoueur();
+		this.navigateur.naviguerVersVueAjouterJoueur();
 	
 
 		JoueurDAO joueurDAO = new JoueurDAO();
@@ -55,6 +58,13 @@ public class ControleurJoueur {
 	{
 		if(null == instance) instance = new ControleurJoueur();
 		return instance;
+	}
+	
+	public void notifierEnregistrerJoueur()
+	{
+		System.out.println("ControleurMouton.notifierEnregistrerJoueur()");
+		Joueur joueur = this.navigateur.getVueAjouterJoueur().demanderJoueur();
+		this.navigateur.naviguerVersVueListeJoueur();
 	}
 	
 

@@ -1,17 +1,17 @@
 package Vue;
-import java.util.ArrayList;
 import java.util.List;
 
+import Controleur.ControleurJoueur;
 import Modele.Joueur;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 
 public class VueListeJoueur extends Scene{
 		
 	protected GridPane grilleJoueur;
+	
+	private ControleurJoueur controleur = null;
 
 
 	public VueListeJoueur() {
@@ -38,6 +38,10 @@ public class VueListeJoueur extends Scene{
 			this.grilleJoueur.add(new Label(joueur.getNaissance()), 2, numero);
 			this.grilleJoueur.add(new Label(joueur.getNumero()), 3, numero);
 		}
+	}
+	
+	public void setControleur(ControleurJoueur controleur) {
+		this.controleur = controleur;
 	}
 
 }

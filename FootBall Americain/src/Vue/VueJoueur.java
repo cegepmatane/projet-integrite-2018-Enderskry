@@ -1,10 +1,9 @@
 package Vue;
+import Controleur.ControleurJoueur;
 import Modele.Joueur;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 
 public class VueJoueur extends Scene {
 	
@@ -12,6 +11,8 @@ public class VueJoueur extends Scene {
 	protected Label valeurNumero;
 	protected Label valeurNaissance;
 	protected Label valeurPoids;
+	
+	private ControleurJoueur controleur = null;
 
 	public VueJoueur()
 	{
@@ -45,5 +46,9 @@ public class VueJoueur extends Scene {
 		this.valeurPoids.setText(joueur.getPoids());
 		this.valeurNaissance.setText(joueur.getNaissance());
 		
+	}
+	
+	public void setControleur(ControleurJoueur controleur) {
+		this.controleur = controleur;
 	}
 }

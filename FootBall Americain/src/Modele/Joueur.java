@@ -23,28 +23,43 @@ public class Joueur {
 		this.naissance = naissance;
 		this.poids = poids;
 	}
-	public String getNom() {
+	
+			/*GET*/
+	public String getNom() 
+	{
 		return nom;
 	}
 	
- 	public void setNom(String nom) {
- 		this.nom = nom;
- 	}
- 	public String getNumero() {
+ 	public String getNumero() 
+ 	{
  		return numero;
  	}
- 	public void setNumero(String numero) {
- 		this.numero = numero;
- 	}
- 	public String getNaissance() {
+ 	
+ 	public String getNaissance() 
+ 	{
  		return naissance;
  	}
- 	public void setNaissance(String naissance) {
- 		this.naissance = naissance;
- 	}
- 	public String getPoids() {
+ 	
+	public String getPoids() 
+ 	{
  		return poids;
  	}
+ 				/*SET*/
+ 	public void setNumero(String numero) 
+ 	{
+ 		this.numero = numero;
+ 	}
+
+ 	public void setNaissance(String naissance) 
+ 	{
+ 		this.naissance = naissance;
+ 	}
+ 	
+	public void setNom(String nom) 
+ 	{
+ 		this.nom = nom;
+ 	}
+ 	
  	public void setPoids(String poids) {
  		this.poids = poids;
  	}

@@ -1,5 +1,8 @@
 package Vue;
 import Modele.Joueur;
+import Controleur.ControleurJoueur;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -15,11 +18,27 @@ public class VueAjouterJoueur extends Scene {
 	protected TextField valeurPoids;
 	protected TextField valeurNaissance;
 	
+	private ControleurJoueur controleur = null;
+	protected Button actionEnregistrerJoueur = null;
+	
+	
 	public VueAjouterJoueur() 
 	{
 		super(new VBox(), 400, 400);
 		VBox panneau = (VBox) this.getRoot();	
 		GridPane grilleJoueur = new GridPane();
+		this.actionEnregistrerJoueur = new Button("Enregistrer");
+		
+		this.actionEnregistrerJoueur.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+
+				controleur.notifierEnregistrerJoueur();
+
+			}
+			
+		});
 		
 		valeurNom = new TextField();
 		grilleJoueur.add(new Label("Nom : "), 0, 0);
@@ -39,7 +58,7 @@ public class VueAjouterJoueur extends Scene {
 		
 		panneau.getChildren().add(new Label("Ajouter un joueur"));
 		panneau.getChildren().add(grilleJoueur);
-		panneau.getChildren().add(new Button("Enregistrer"));
+		panneau.getChildren().add(this.actionEnregistrerJoueur);
 				
 	
 	}
@@ -54,6 +73,10 @@ public class VueAjouterJoueur extends Scene {
 		
 		return joueur;
 		
+	}
+	
+	public void setControleur(ControleurJoueur controleur) {
+		this.controleur = controleur;
 	}
 
 }
