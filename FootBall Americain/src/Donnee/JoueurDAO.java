@@ -76,5 +76,21 @@ List<Joueur> listeJoueurTest = new ArrayList<Joueur>();
 	}
 	
 	
+	public void ajouterJoueur(Joueur joueur)
+	{
+		System.out.println("JoueurDAO.ajouterJoueur()");
+		try {
+			Statement requeteAjouterJoueur = connection.createStatement();
+			
+			String sqlAjouterJoueur = "INSERT into joueur(nom, numero, poid, naissance) VALUES('"+joueur.getNom() +"','"+joueur.getNumero() +"','"+joueur.getPoids() +"','" +joueur.getPoids() +"','" +joueur.getNaissance()+"')";
+			System.out.println("SQL : " + sqlAjouterJoueur);
+			requeteAjouterJoueur.execute(sqlAjouterJoueur);
+
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 	
 }
