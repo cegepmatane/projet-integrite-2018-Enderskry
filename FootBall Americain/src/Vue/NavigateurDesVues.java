@@ -8,6 +8,8 @@ public class NavigateurDesVues extends Application {
 	private VueAjouterJoueur vueAjouterJoueur = null;
 	private VueListeJoueur vueListeJoueur = null;
 	private VueJoueur vueJoueur = null;
+	private VueEditerJoueur vueEditerJoueur = null;
+	
 	private Stage stade;
 	private ControleurJoueur controleur = null;
 	
@@ -16,6 +18,7 @@ public class NavigateurDesVues extends Application {
 		this.vueAjouterJoueur = new VueAjouterJoueur();
 		this.vueListeJoueur = new VueListeJoueur();
 		this.vueJoueur = new VueJoueur();
+		this.vueEditerJoueur = new VueEditerJoueur();
 	}
 	
 	@Override
@@ -34,6 +37,7 @@ public class NavigateurDesVues extends Application {
 		this.vueAjouterJoueur.setControleur(controleur);
 		this.vueListeJoueur.setControleur(controleur);
 		this.vueJoueur.setControleur(controleur);
+		this.vueEditerJoueur.setControleur(controleur);
 	
 	}
 	
@@ -51,6 +55,11 @@ public class NavigateurDesVues extends Application {
 	public VueAjouterJoueur getVueAjouterJoueur()
 	{
 		return vueAjouterJoueur;
+	}
+	
+	public VueEditerJoueur getVueEditerJoueur()
+	{
+		return this.vueEditerJoueur;
 	}
 
 				/*Navigation*/
@@ -72,7 +81,11 @@ public class NavigateurDesVues extends Application {
 		stade.show();
 	}
 	
-
+	public void naviguerVersVueEditerJoueur()
+	{
+		stade.setScene(this.vueEditerJoueur);
+		stade.show();
+	}
 	
 	
 }

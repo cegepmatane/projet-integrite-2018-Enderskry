@@ -80,5 +80,10 @@ public class ControleurJoueur {
 		this.vueListeJoueur.afficherListeJoueur(this.joueurDAO.listerJoueur());
 
 	}
+	
+	public void notifierNaviguerEditerJoueur()
+	{
+		this.navigateur.naviguerVersVueEditerJoueur();
+	}
 
 }

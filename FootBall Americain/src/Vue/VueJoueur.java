@@ -16,7 +16,7 @@ public class VueJoueur extends Scene {
 
 	public VueJoueur()
 	{
-		super(new GridPane(), 400, 400);
+		super(new GridPane(), 500, 500);
 		GridPane grilleJoueur =  (GridPane) this.getRoot();
  
  		

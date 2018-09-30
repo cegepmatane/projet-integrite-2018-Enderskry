@@ -20,7 +20,7 @@ public class VueListeJoueur extends Scene{
 	private Button actionNettoyerListeJoueur;
 
 	public VueListeJoueur() {
-		super(new GridPane(), 400, 400);
+		super(new GridPane(), 500, 500);
 		grilleJoueur =  (GridPane) this.getRoot();	
 		this.actionNaviguerAjouterJoueur = new Button("Ajouter un joueur");
 		this.actionNettoyerListeJoueur = new Button("Nettoyer Liste");
@@ -34,15 +34,23 @@ public class VueListeJoueur extends Scene{
 		int numero = 0;
 		this.grilleJoueur.add(new Label("Nom"), 0 , numero);
 		this.grilleJoueur.add(new Label("	Naissance"), 1, numero);
-		this.grilleJoueur.add(new Label("	Poids"), 2, numero);
+		this.grilleJoueur.add(new Label("Poids"), 2, numero);
 		this.grilleJoueur.add(new Label("	Numero"), 3, numero);
 		for(Joueur joueur : listeJoueur)
 		{
+			Button actionEditerJoueur = new Button("Editer");
+			actionEditerJoueur.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent arg0) {
+					controleur.notifierNaviguerEditerJoueur();
+				}});
 			numero++;
 			this.grilleJoueur.add(new Label(joueur.getNom()), 0, numero);
 			this.grilleJoueur.add(new Label(joueur.getPoids()), 1, numero);
 			this.grilleJoueur.add(new Label(joueur.getNaissance()), 2, numero);
 			this.grilleJoueur.add(new Label(joueur.getNumero()), 3, numero);
+			this.grilleJoueur.add(actionEditerJoueur, 5, numero);
+
 		}
 	this.actionNaviguerAjouterJoueur.setOnAction(new EventHandler<ActionEvent>() {
 
