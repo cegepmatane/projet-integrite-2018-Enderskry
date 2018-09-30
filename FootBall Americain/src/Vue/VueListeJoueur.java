@@ -3,7 +3,10 @@ import java.util.List;
 
 import Controleur.ControleurJoueur;
 import Modele.Joueur;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
@@ -12,11 +15,14 @@ public class VueListeJoueur extends Scene{
 	protected GridPane grilleJoueur;
 	
 	private ControleurJoueur controleur = null;
+	
+	private Button actionNaviguerAjouterJoueur;
 
 
 	public VueListeJoueur() {
 		super(new GridPane(), 400, 400);
 		grilleJoueur =  (GridPane) this.getRoot();	
+		this.actionNaviguerAjouterJoueur = new Button("Ajouter un joueur");
 	
 	}
 	
@@ -38,7 +44,18 @@ public class VueListeJoueur extends Scene{
 			this.grilleJoueur.add(new Label(joueur.getNaissance()), 2, numero);
 			this.grilleJoueur.add(new Label(joueur.getNumero()), 3, numero);
 		}
+	this.actionNaviguerAjouterJoueur.setOnAction(new EventHandler<ActionEvent>() {
+
+		@Override
+		public void handle(ActionEvent event) {
+			controleur.notifierNaviguerAjouterJoueur();
+		}
+		
+	});
+	
+		this.grilleJoueur.add(this.actionNaviguerAjouterJoueur, 1, ++numero);
 	}
+	
 	
 	public void setControleur(ControleurJoueur controleur) {
 		this.controleur = controleur;

@@ -42,7 +42,7 @@ public class ControleurJoueur {
 		
 		this.navigateur.naviguerVerVueJoueur();
 		this.navigateur.naviguerVersVueListeJoueur();
-		this.navigateur.naviguerVersVueAjouterJoueur();
+		//this.navigateur.naviguerVersVueAjouterJoueur();
 	
 
 		List<Joueur> listeJoueurTest = joueurDAO.listerJoueur();
@@ -61,17 +61,17 @@ public class ControleurJoueur {
 	
 	public void notifierEnregistrerJoueur()
 	{
-		System.out.println("Joueur Enregistré");
+		System.out.println("Joueur Enregistrï¿½");
 		Joueur joueur = this.navigateur.getVueAjouterJoueur().demanderJoueur();
 		this.joueurDAO.ajouterJoueur(joueur);
-		//this.vueListeJoueur.afficherListeJoueur(this.joueurDAO.listerJoueur());
+		this.vueListeJoueur.afficherListeJoueur(this.joueurDAO.listerJoueur());
 		this.navigateur.naviguerVersVueListeJoueur();
 	}
 	
-	/*public void notifierNaviguerAjouterJoueur()
+	public void notifierNaviguerAjouterJoueur()
 	{
-		System.out.println("ControleurMouton.notifierNaviguerAjouterJoueur()");
+		System.out.println("ControleurJoueur.notifierNaviguerAjouterJoueur()");
 		this.navigateur.naviguerVersVueAjouterJoueur();
-	}*/
+	}
 
 }
