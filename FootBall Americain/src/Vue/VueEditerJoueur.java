@@ -55,6 +55,14 @@ public class VueEditerJoueur extends Scene {
 		panneau.getChildren().add(this.actionEnregistrerJoueur);
 	}
 	
+	public void afficherJoueur(Joueur joueur)
+	{
+		this.valeurNom.setText(joueur.getNom());
+		this.valeurNumero.setText(joueur.getNumero());
+		this.valeurPoids.setText(joueur.getPoids());
+		this.valeurNaissance.setText(joueur.getNaissance());
+	}
+	
 
 	public Joueur demanderJoueur()
 	{

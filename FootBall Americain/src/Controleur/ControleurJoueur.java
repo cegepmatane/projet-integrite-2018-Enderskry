@@ -6,6 +6,7 @@ import Donnee.JoueurDAO;
 import Modele.Joueur;
 import Vue.NavigateurDesVues;
 import Vue.VueAjouterJoueur;
+import Vue.VueEditerJoueur;
 import Vue.VueJoueur;
 import Vue.VueListeJoueur;
 
@@ -16,6 +17,7 @@ public class ControleurJoueur {
 	private VueJoueur vueJoueur = null;
 	private VueListeJoueur vueListeJoueur = null;
 	private VueAjouterJoueur vueAjouterJoueur = null;
+	private VueEditerJoueur vueEditerJoueur = null;
 	
 	JoueurDAO joueurDAO = null;
 
@@ -32,6 +34,7 @@ public class ControleurJoueur {
 		this.vueJoueur = navigateur.getVueJoueur();
 		this.vueListeJoueur = navigateur.getVueListeJoueur();
 		this.vueAjouterJoueur = navigateur.getVueAjouterJoueur();
+		this.vueEditerJoueur = navigateur.getVueEditerJoueur();
 		
 		
 		
