@@ -59,12 +59,14 @@ public class JoueurDAO {
 			
 			while(curseurListeJoueur.next())
 			{
+				int id_joueur = curseurListeJoueur.getInt("id_joueur");
 				String nom = curseurListeJoueur.getString("nom");
 				String numero = curseurListeJoueur.getString("numero");
 				String poids = curseurListeJoueur.getString("poids");
 				String naissance = curseurListeJoueur.getString("naissance");
 				System.out.println("Joueur " + nom + " nee le " + naissance + " poids: " + poids +" kg " +" numero: " + numero);
 				Joueur joueur = new Joueur(nom, numero, poids, naissance);
+				joueur.setId(id_joueur);
 				listeJoueur.add(joueur);
 			}
 			
@@ -104,6 +106,29 @@ public class JoueurDAO {
 		}
 	}
 	
+	public Joueur rapporterJoueur(int idJoueur)
+	{
+		Statement requeteJoueur;
+		try {
+			requeteJoueur = connection.createStatement();
+			String SQL_RAPPORTER_JOUEUR = "SELECT * FROM joueur WHERE id_joueur = " + idJoueur;
+
+			ResultSet curseurJoueur = requeteJoueur.executeQuery(SQL_RAPPORTER_JOUEUR);
+			curseurJoueur.next();
+			//int id_joueur = curseurJoueur.getInt("id_joueur");
+			String nom = curseurJoueur.getString("nom");
+			String numero = curseurJoueur.getString("numero");
+			String poids = curseurJoueur.getString("poids");
+			String naissance = curseurJoueur.getString("naissance");
+
+			Joueur joueur = new Joueur(nom, numero, naissance,poids );
+			//joueur.setId(id_joueur);
+			return joueur;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 	
 }

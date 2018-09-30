@@ -64,7 +64,7 @@ public class ControleurJoueur {
 	
 	public void notifierEnregistrerJoueur()
 	{
-		System.out.println("Joueur Enregistr�");
+		System.out.println("Joueur Enregistrer");
 		Joueur joueur = this.navigateur.getVueAjouterJoueur().demanderJoueur();
 		this.joueurDAO.ajouterJoueur(joueur);
 		this.vueListeJoueur.afficherListeJoueur(this.joueurDAO.listerJoueur());
@@ -84,8 +84,9 @@ public class ControleurJoueur {
 
 	}
 	
-	public void notifierNaviguerEditerJoueur()
+	public void notifierNaviguerEditerJoueur(int idJoueur)
 	{
+		this.vueEditerJoueur.afficherJoueur(this.joueurDAO.rapporterJoueur(idJoueur));
 		this.navigateur.naviguerVersVueEditerJoueur();
 	}
 

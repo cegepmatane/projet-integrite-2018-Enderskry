@@ -42,7 +42,7 @@ public class VueListeJoueur extends Scene{
 			actionEditerJoueur.setOnAction(new EventHandler<ActionEvent>() {
 				@Override
 				public void handle(ActionEvent arg0) {
-					controleur.notifierNaviguerEditerJoueur();
+					controleur.notifierNaviguerEditerJoueur(joueur.getId());
 				}});
 			numero++;
 			this.grilleJoueur.add(new Label(joueur.getNom()), 0, numero);

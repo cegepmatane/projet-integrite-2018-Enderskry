@@ -1,6 +1,7 @@
 package Modele;
 
 public class Joueur {
+	protected int id_joueur;
 	protected String nom;
  	protected String numero;
 	protected String naissance;
@@ -44,6 +45,11 @@ public class Joueur {
  	{
  		return poids;
  	}
+	
+	public int getId()
+	{
+		return id_joueur;
+	}
  				/*SET*/
  	public void setNumero(String numero) 
  	{
@@ -62,5 +68,10 @@ public class Joueur {
  	
  	public void setPoids(String poids) {
  		this.poids = poids;
+ 	}
+ 	
+ 	public void setId(int id_joueur)
+ 	{
+ 		this.id_joueur = id_joueur;
  	}
 }
