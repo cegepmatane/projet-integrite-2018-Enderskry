@@ -14,8 +14,7 @@ public class JoueurDAO {
 
 	private List<Joueur> simulerListerJoueur()
 	{
-List<Joueur> listeJoueurTest = new ArrayList<Joueur>();
-		
+		List<Joueur> listeJoueurTest = new ArrayList<Joueur>();
 		listeJoueurTest.add(new Joueur("Alec", "	22", "	59 kg", "	4 Mai 1998"));
 		listeJoueurTest.add(new Joueur("Lucas", "	12", "	76 kg", "	10 Juillet 1997"));
 		listeJoueurTest.add(new Joueur("Antoine", "	2", "	59 kg", "	20 Octobre 1998"));
@@ -27,7 +26,7 @@ List<Joueur> listeJoueurTest = new ArrayList<Joueur>();
 		String BASEDEDONNEES_DRIVER = "org.postgresql.Driver";
 		String BASEDEDONNEES_URL = "jdbc:postgresql://localhost:5432/postgres";
 		String BASEDEDONNEES_USAGER = "postgres";
-		String BASEDEDONNEES_MOTDEPASSE = "mimine1998";
+		String BASEDEDONNEES_MOTDEPASSE = "admin";
 		private Connection connection = null;
 		
 		public JoueurDAO()
@@ -50,6 +49,7 @@ List<Joueur> listeJoueurTest = new ArrayList<Joueur>();
 	
 	public List<Joueur> listerJoueur()
 	{
+		
  		List<Joueur> listeJoueur =  new ArrayList<Joueur>();			
 		Statement requeteListeJoueur;
 		try {
@@ -82,7 +82,7 @@ List<Joueur> listeJoueurTest = new ArrayList<Joueur>();
 		try {
 			Statement requeteAjouterJoueur = connection.createStatement();
 			
-			String sqlAjouterJoueur = "INSERT into joueur(nom, numero, poid, naissance) VALUES('"+joueur.getNom() +"','"+joueur.getNumero() +"','"+joueur.getPoids() +"','" +joueur.getPoids() +"','" +joueur.getNaissance()+"')";
+			String sqlAjouterJoueur = "INSERT into joueur(nom, poids, numero, naissance) VALUES('"+joueur.getNom() +"','"+joueur.getPoids() +"','"+joueur.getNumero()+"','" +joueur.getNaissance()+"')";
 			System.out.println("SQL : " + sqlAjouterJoueur);
 			requeteAjouterJoueur.execute(sqlAjouterJoueur);
 

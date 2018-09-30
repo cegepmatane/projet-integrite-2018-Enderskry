@@ -17,7 +17,7 @@ public class ControleurJoueur {
 	private VueListeJoueur vueListeJoueur = null;
 	private VueAjouterJoueur vueAjouterJoueur = null;
 	
-	private JoueurDAO joueurDAO = null;
+	JoueurDAO joueurDAO = null;
 
 	
 	private ControleurJoueur()
@@ -37,7 +37,7 @@ public class ControleurJoueur {
 		
 				/*Test*/
  		Joueur joueur = new Joueur("	Alec", "	22", "	59 kg", "	4 Mai 1998");
- 		this.vueJoueur.afficherMouton(joueur);
+ 		this.vueJoueur.afficherJoueur(joueur);
 		
 		
 		this.navigateur.naviguerVerVueJoueur();
@@ -45,7 +45,6 @@ public class ControleurJoueur {
 		this.navigateur.naviguerVersVueAjouterJoueur();
 	
 
-		JoueurDAO joueurDAO = new JoueurDAO();
 		List<Joueur> listeJoueurTest = joueurDAO.listerJoueur();
  		this.vueListeJoueur.afficherListeJoueur(listeJoueurTest);
 	
@@ -62,10 +61,17 @@ public class ControleurJoueur {
 	
 	public void notifierEnregistrerJoueur()
 	{
-		System.out.println("ControleurMouton.notifierEnregistrerJoueur()");
+		System.out.println("Joueur Enregistré");
 		Joueur joueur = this.navigateur.getVueAjouterJoueur().demanderJoueur();
+		this.joueurDAO.ajouterJoueur(joueur);
+		//this.vueListeJoueur.afficherListeJoueur(this.joueurDAO.listerJoueur());
 		this.navigateur.naviguerVersVueListeJoueur();
 	}
 	
+	/*public void notifierNaviguerAjouterJoueur()
+	{
+		System.out.println("ControleurMouton.notifierNaviguerAjouterJoueur()");
+		this.navigateur.naviguerVersVueAjouterJoueur();
+	}*/
 
 }

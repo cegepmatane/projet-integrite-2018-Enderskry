@@ -39,7 +39,7 @@ public class VueJoueur extends Scene {
 
 	}
 	
-	public void afficherMouton(Joueur joueur)
+	public void afficherJoueur(Joueur joueur)
 	{
 		this.valeurNom.setText(joueur.getNom());
 		this.valeurNumero.setText(joueur.getNumero());
