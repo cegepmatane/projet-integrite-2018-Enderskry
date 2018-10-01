@@ -1,7 +1,11 @@
 package Vue;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import Controleur.ControleurJoueur;
 import Modele.Joueur;
+import Modele.Palmares;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -57,10 +61,36 @@ public class VueEditerJoueur extends Scene {
 		grilleJoueur.add(new Label("Numero : "), 0, 3);
 		grilleJoueur.add(valeurNumero, 1, 3);	
 		
-		this.grilleListePalmares.add(new Label("Palmares 1"), 0 ,0);
-		this.grilleListePalmares.add(new Label("Palmares 2"), 0 ,1);
-		this.grilleListePalmares.add(new Label("Palmares 3"), 0 ,2);
-		this.grilleListePalmares.add(new Label("Palmares 4"), 0 ,3);
+		
+		List<Palmares> listePalmares = new ArrayList<Palmares>();
+		Palmares titre;
+		
+		titre = new Palmares("Meilleur attaquant", "22",2018);
+		listePalmares.add(titre);
+		
+		
+		titre = new Palmares("Meilleur joueur", "22",2018);
+		listePalmares.add(titre);
+
+		
+		titre = new Palmares("Meilleur Defenseur", "22",2018);
+		listePalmares.add(titre);
+
+		
+		titre = new Palmares("Meilleur sprinteur", "22",2018);
+		listePalmares.add(titre);
+
+		int objet = 0;
+		for(Palmares palmares : listePalmares)
+		{
+			this.grilleListePalmares.add(new Label("Palmares 1"), 0 ,0);
+			this.grilleListePalmares.add(new Label("Palmares 2"), 0 ,1);
+			this.grilleListePalmares.add(new Label("Palmares 3"), 0 ,2);
+			this.grilleListePalmares.add(new Label("Palmares 4"), 0 ,3);
+			objet++;
+		}
+		
+		
 
 			
 		panneau.getChildren().add(new Label("Editer un joueur")); 

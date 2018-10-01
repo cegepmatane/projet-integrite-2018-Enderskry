@@ -1,9 +1,17 @@
 package Modele;
 
+import java.util.Calendar;
+
 public class Palmares {
+	protected int id;
 	protected String titre;
 	protected String numero_joueur;
-	protected String date;
+	protected int date;
+	
+	public Palmares()
+	{
+		this.date = Calendar.getInstance().get(Calendar.YEAR);
+	}
 	
 	public Palmares(String titre) 
 	{
@@ -16,7 +24,7 @@ public class Palmares {
 		this.numero_joueur = numero_joueur;
 	}
 	
-	public Palmares(String titre, String numero_joueur, String date) 
+	public Palmares(String titre, String numero_joueur, int date) 
 	{
 		this.titre = titre;
 		this.numero_joueur = numero_joueur;
@@ -24,6 +32,11 @@ public class Palmares {
 	}
 	
 			/*GET*/
+	public int getId()
+	{
+		return id;
+	}
+	
 	public String getTitre()
 	{
 		return titre;
@@ -34,22 +47,27 @@ public class Palmares {
 		return numero_joueur;
 	}
 	
-	public String getDate()
+	public int getDate()
 	{
 		return date;
 	}
 	
-	public void setTitre()
+	public void setId(int id)
+	{
+		this.id = id;
+	}
+	
+	public void setTitre(String titre)
 	{
 		this.titre = titre;
 	}
 	
-	public void setNumero_Joueur()
+	public void setNumero_Joueur(String numero_joueur)
 	{
 		this.numero_joueur = numero_joueur;
 	}
 	
-	public void setDate()
+	public void setDate(int date)
 	{
 		this.date = date;
 	}
