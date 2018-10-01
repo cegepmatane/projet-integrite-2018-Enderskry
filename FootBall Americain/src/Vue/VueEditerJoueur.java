@@ -20,6 +20,7 @@ public class VueEditerJoueur extends Scene {
 	
 	private ControleurJoueur controleur = null;
 	protected Button actionEnregistrerJoueur = null;
+	GridPane grilleListePalmares = new GridPane();
 	
 	private int id_joueur = 0;
 	
@@ -54,11 +55,19 @@ public class VueEditerJoueur extends Scene {
 		
 		valeurNumero = new TextField("");
 		grilleJoueur.add(new Label("Numero : "), 0, 3);
-		grilleJoueur.add(valeurNumero, 1, 3);				
+		grilleJoueur.add(valeurNumero, 1, 3);	
+		
+		this.grilleListePalmares.add(new Label("Palmares 1"), 0 ,0);
+		this.grilleListePalmares.add(new Label("Palmares 2"), 0 ,1);
+		this.grilleListePalmares.add(new Label("Palmares 3"), 0 ,2);
+		this.grilleListePalmares.add(new Label("Palmares 4"), 0 ,3);
+
 			
 		panneau.getChildren().add(new Label("Editer un joueur")); 
 		panneau.getChildren().add(grilleJoueur);
 		panneau.getChildren().add(this.actionEnregistrerJoueur);
+		panneau.getChildren().add(grilleListePalmares);
+		
 	}
 	
 	public void afficherJoueur(Joueur joueur)
