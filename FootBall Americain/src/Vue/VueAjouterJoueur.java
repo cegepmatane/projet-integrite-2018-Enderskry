@@ -34,7 +34,7 @@ public class VueAjouterJoueur extends Scene {
 			@Override
 			public void handle(ActionEvent arg0) {
 
-				controleur.notifierEnregistrerJoueur();
+				controleur.notifierEnregistrerNouveauJoueur();
 
 			}
 			
@@ -44,17 +44,19 @@ public class VueAjouterJoueur extends Scene {
 		grilleJoueur.add(new Label("Nom : "), 0, 0);
 		grilleJoueur.add(valeurNom, 1, 0);
 		
-		valeurNumero = new TextField("");
-		grilleJoueur.add(new Label("Numero : "), 0, 1);
-		grilleJoueur.add(valeurNumero, 1, 1);
+		valeurNaissance = new TextField("");
+		grilleJoueur.add(new Label("Naissance : "), 0, 1);
+		grilleJoueur.add(valeurNaissance, 1, 1);
+		
+		
 	
 		valeurPoids = new TextField("");
 		grilleJoueur.add(new Label("Poids : "), 0, 2);
 		grilleJoueur.add(valeurPoids, 1, 2);	
 		
-		valeurNaissance = new TextField("");
-		grilleJoueur.add(new Label("Naissance : "), 0, 3);
-		grilleJoueur.add(valeurNaissance, 1, 3);
+		valeurNumero = new TextField("");
+		grilleJoueur.add(new Label("Numero : "), 0, 3);
+		grilleJoueur.add(valeurNumero, 1, 3);
 		
 		panneau.getChildren().add(new Label("Ajouter un joueur"));
 		panneau.getChildren().add(grilleJoueur);
@@ -67,9 +69,9 @@ public class VueAjouterJoueur extends Scene {
 	{
 		
 		Joueur joueur = new Joueur(this.valeurNom.getText(),
-									this.valeurNumero.getText(),
 									this.valeurPoids.getText(),
-									this.valeurNaissance.getText());
+									this.valeurNaissance.getText(),
+									this.valeurNumero.getText());
 		
 		return joueur;
 		

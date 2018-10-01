@@ -61,11 +61,11 @@ public class JoueurDAO {
 			{
 				int id_joueur = curseurListeJoueur.getInt("id_joueur");
 				String nom = curseurListeJoueur.getString("nom");
-				String numero = curseurListeJoueur.getString("numero");
 				String poids = curseurListeJoueur.getString("poids");
 				String naissance = curseurListeJoueur.getString("naissance");
+				String numero = curseurListeJoueur.getString("numero");
 				System.out.println("Joueur " + nom + " nee le " + naissance + " poids: " + poids +" kg " +" numero: " + numero);
-				Joueur joueur = new Joueur(nom, numero, poids, naissance);
+				Joueur joueur = new Joueur(nom, poids, naissance, numero);
 				joueur.setId(id_joueur);
 				listeJoueur.add(joueur);
 			}
@@ -80,11 +80,11 @@ public class JoueurDAO {
 	
 	public void ajouterJoueur(Joueur joueur)
 	{
-		System.out.println("JoueurDAO.ajouterJoueur()");
+		System.out.println("Ajouter Joueur");
 		try {
 			Statement requeteAjouterJoueur = connection.createStatement();
 			
-			String sqlAjouterJoueur = "INSERT into joueur(nom, naissance, numero, poids) VALUES('"+joueur.getNom() +"','"+joueur.getPoids() +"','"+joueur.getNumero()+"','" +joueur.getNaissance()+"')";
+			String sqlAjouterJoueur = "INSERT into joueur(nom, poids, naissance, numero ) VALUES('"+joueur.getNom() +"','"+joueur.getPoids() +"','"+joueur.getNaissance()+"','" +joueur.getNumero()+"')";
 			System.out.println("SQL : " + sqlAjouterJoueur);
 			requeteAjouterJoueur.execute(sqlAjouterJoueur);
 
@@ -95,12 +95,28 @@ public class JoueurDAO {
 	
 	public void nettoyerListeJoueur() 
 	{
+		System.out.println("Nettoyer Liste");
+
 		try {
 			Statement requeteNettoyerListeJoueur = connection.createStatement();
 			
 			String sqlNettoyerListeJoueur = "DELETE FROM joueur";
 			requeteNettoyerListeJoueur.execute(sqlNettoyerListeJoueur);
 	
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void modifierJoueur(Joueur joueur)
+	{
+		System.out.println("Modifier Joueur");
+		try {
+			Statement requeteModifierJoueur = connection.createStatement();
+			String sqlModifierJoueur = "UPDATE joueur SET nom = '"+joueur.getNom()+"', poids = '"+joueur.getPoids()+"', naissance = '"+joueur.getNaissance()+"', numero = '"+joueur.getNumero()+"' WHERE id_joueur = " + joueur.getId();
+			System.out.println("SQL : " + sqlModifierJoueur);
+			requeteModifierJoueur.execute(sqlModifierJoueur);
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -115,14 +131,14 @@ public class JoueurDAO {
 
 			ResultSet curseurJoueur = requeteJoueur.executeQuery(SQL_RAPPORTER_JOUEUR);
 			curseurJoueur.next();
-			//int id_joueur = curseurJoueur.getInt("id_joueur");
+			int id_joueur = curseurJoueur.getInt("id_joueur");
 			String nom = curseurJoueur.getString("nom");
-			String numero = curseurJoueur.getString("numero");
 			String poids = curseurJoueur.getString("poids");
 			String naissance = curseurJoueur.getString("naissance");
+			String numero = curseurJoueur.getString("numero");
 
-			Joueur joueur = new Joueur(nom, numero, naissance,poids );
-			//joueur.setId(id_joueur);
+			Joueur joueur = new Joueur(nom, poids, naissance,numero );
+			joueur.setId(id_joueur);
 			return joueur;
 		} catch (SQLException e) {
 			e.printStackTrace();

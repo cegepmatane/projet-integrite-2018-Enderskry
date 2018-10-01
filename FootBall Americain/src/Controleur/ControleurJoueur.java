@@ -62,11 +62,20 @@ public class ControleurJoueur {
 		return instance;
 	}
 	
+	public void notifierEnregistrerNouveauJoueur()
+	{
+		System.out.println("Nouveau Joueur Enregistrer");
+		Joueur joueur = this.navigateur.getVueAjouterJoueur().demanderJoueur();
+		this.joueurDAO.ajouterJoueur(joueur);
+		this.vueListeJoueur.afficherListeJoueur(this.joueurDAO.listerJoueur());
+		this.navigateur.naviguerVersVueListeJoueur();
+	}
+	
 	public void notifierEnregistrerJoueur()
 	{
 		System.out.println("Joueur Enregistrer");
-		Joueur joueur = this.navigateur.getVueAjouterJoueur().demanderJoueur();
-		this.joueurDAO.ajouterJoueur(joueur);
+		Joueur joueur = this.navigateur.getVueEditerJoueur().demanderJoueur();
+		this.joueurDAO.modifierJoueur(joueur);
 		this.vueListeJoueur.afficherListeJoueur(this.joueurDAO.listerJoueur());
 		this.navigateur.naviguerVersVueListeJoueur();
 	}

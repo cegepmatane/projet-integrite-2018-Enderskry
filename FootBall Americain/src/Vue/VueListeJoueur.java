@@ -46,8 +46,8 @@ public class VueListeJoueur extends Scene{
 				}});
 			numero++;
 			this.grilleJoueur.add(new Label(joueur.getNom()), 0, numero);
-			this.grilleJoueur.add(new Label(joueur.getPoids()), 1, numero);
-			this.grilleJoueur.add(new Label(joueur.getNaissance()), 2, numero);
+			this.grilleJoueur.add(new Label(joueur.getPoids()), 2, numero);
+			this.grilleJoueur.add(new Label(joueur.getNaissance()), 1, numero);
 			this.grilleJoueur.add(new Label(joueur.getNumero()), 3, numero);
 			this.grilleJoueur.add(actionEditerJoueur, 5, numero);
 
